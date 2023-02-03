@@ -7,3 +7,8 @@ pub use android::*;
 mod ios;
 #[cfg(target_os = "ios")]
 pub use ios::*;
+
+#[cfg(not(any(target_os = "android", taget_os = "ios")))]
+mod desktop;
+#[cfg(not(any(target_os = "android", taget_os = "ios")))]
+pub use desktop::*;

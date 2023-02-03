@@ -3,12 +3,12 @@ name = "mowview"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
-
 [target.'cfg(target_os="android")'.dependencies]
 jni = {version = "0.20", default-features = false}
 
 [target.'cfg(target_os="ios")'.dependencies]
 objc = "0.2.7"
+
+# for debugging!
+[target.'cfg(not(any(target_os="ios", taget_os="android")))'.dependencies]
+livid-desktop = "0.1.4"
